@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { fetchPlayers } from './ajaxHelpers'; // Assuming fetchPlayers is correctly implemented
+import { useNavigate } from 'react-router-dom';
+
 
 const AllPlayers = () => {
-    const [players, setPlayers] = useState([]);
+    const [players, setPlayers] = useState([]);//setting player state
+    const navigate = useNavigate();//navigate hook
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,7 +32,7 @@ const AllPlayers = () => {
             ) : (
                 <ul>
                     {players.map((player) => (
-                        <li key={player.id}>
+                        <li key={player.id} onClick={() => navigate('/players/${player.id}')}>
                             <h4>{player.name}</h4>
                             <p>Team: {player.team}</p>
                             {/* Render other player details */}
