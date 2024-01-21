@@ -8,30 +8,34 @@ const AllPlayers = () => {
         const fetchData = async () => {
             try {
                 const data = await fetchPlayers();
-                console.log('API Response:', data); // Log the API response to the console
-                setPlayers(data.data); // Assuming 'data' has a 'data' property containing the array
+                console.log('API Response:', data);
+
+                // Update the state based on the response structure
+                setPlayers(data.success && data.data ? data.data.players : []);
             } catch (error) {
                 console.error('Error fetching players', error);
             }
         };
 
         fetchData();
-    }, []); // Empty dependency array to run the effect only once on component mount
-
+    }, []);
     console.log('Players State:', players); // Log the state of the 'players' variable
 
     return (
         <div>
-            <h1>All Players</h1>
-            {Array.isArray(players) ? (
-                players.map((player) => (
-                    <div key={player.id}>
-                        {/* Render player information here */}
-                        <p>{player.name}</p>
-                    </div>
-                ))
+            <h2>All Players</h2>
+            {players.length === 0 ? (
+                <p>Loading players...</p>
             ) : (
-                <p>No players to display</p>
+                <ul>
+                    {players.map((player) => (
+                        <li key={player.id}>
+                            <h4>{player.name}</h4>
+                            <p>Team: {player.team}</p>
+                            {/* Render other player details */}
+                        </li>
+                    ))}
+                </ul>
             )}
         </div>
     );
