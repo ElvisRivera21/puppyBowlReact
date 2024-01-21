@@ -1,6 +1,5 @@
-// AllPlayers.jsx
 import React, { useState, useEffect } from 'react';
-import { fetchPlayers } from './ajaxHelpers';
+import { fetchPlayers } from './ajaxHelpers'; // Assuming fetchPlayers is correctly implemented
 
 const AllPlayers = () => {
     const [players, setPlayers] = useState([]);
@@ -9,6 +8,7 @@ const AllPlayers = () => {
         const fetchData = async () => {
             try {
                 const data = await fetchPlayers();
+                console.log('API Response:', data); // Log the API response to the console
                 setPlayers(data.data); // Assuming 'data' has a 'data' property containing the array
             } catch (error) {
                 console.error('Error fetching players', error);
@@ -17,6 +17,8 @@ const AllPlayers = () => {
 
         fetchData();
     }, []); // Empty dependency array to run the effect only once on component mount
+
+    console.log('Players State:', players); // Log the state of the 'players' variable
 
     return (
         <div>
