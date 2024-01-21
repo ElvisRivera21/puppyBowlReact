@@ -14,7 +14,7 @@ import SinglePlayer from './components/SinglePlayer.jsx';
 document.addEventListener('DOMContentLoaded', () => {
 
 
-  // Example:
+ 
   ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
       <BrowserRouter>

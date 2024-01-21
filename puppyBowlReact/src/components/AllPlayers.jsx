@@ -9,23 +9,28 @@ const AllPlayers = () => {
         const fetchData = async () => {
             try {
                 const data = await fetchPlayers();
-                setPlayers(data); // Assuming your API returns an array of players
+                setPlayers(data.data); // Assuming 'data' has a 'data' property containing the array
             } catch (error) {
                 console.error('Error fetching players', error);
             }
         };
 
         fetchData();
-    }, []);
-    
+    }, []); // Empty dependency array to run the effect only once on component mount
+
     return (
         <div>
-            {players.map((player) => (
-                <div key={player.id}>
-                    <h4>{player.name}</h4>
-                    {/* Render other player details */}
-                </div>
-            ))}
+            <h1>All Players</h1>
+            {Array.isArray(players) ? (
+                players.map((player) => (
+                    <div key={player.id}>
+                        {/* Render player information here */}
+                        <p>{player.name}</p>
+                    </div>
+                ))
+            ) : (
+                <p>No players to display</p>
+            )}
         </div>
     );
 };
