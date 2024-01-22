@@ -26,7 +26,7 @@ const AllPlayers = () => {
 
     return (
         <div>
-            <h2>All Players</h2>
+            <h2>The Players</h2>
             {players.length === 0 ? (
                 <p>Loading players...</p>
             ) : (
