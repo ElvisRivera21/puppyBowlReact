@@ -1,12 +1,12 @@
 //ajaxHelpers.js
 
 
-
+const baseURL ='https://fsa-puppy-bowl.herokuapp.com/api/2310-fsa-et-web-pt-sf-b-elvis/players/'
 
 
 export const fetchPlayers = async () => {
     try {
-        const response = await fetch('https://fsa-puppy-bowl.herokuapp.com/api/2310-fsa-et-web-pt-sf-b/players');
+        const response = await fetch(baseURL);
         const data = await response.json();
       
         return data;
@@ -19,7 +19,7 @@ export const fetchPlayers = async () => {
 
 export const fetchPlayerById = async (playerId) => {
     try {
-        const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2310-fsa-et-web-pt-sf-b/players/PLAYER-ID`);
+        const response = await fetch(`${baseURL}${playerId}`);
         const data = await response.json();
         console.log(response);
         return data;

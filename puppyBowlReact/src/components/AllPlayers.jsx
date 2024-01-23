@@ -32,7 +32,7 @@ const AllPlayers = () => {
             ) : (
                 <ul>
                     {players.map((player) => (
-                        <li key={player.id} onClick={() => navigate('/players/${player.id}')}>
+                        <li key={player.id} onClick={() => navigate(`${player.id}`)}>
                             <h4>{player.name}</h4>
                             <p>Team: {player.team}</p>
                             {/* Render other player details */}
