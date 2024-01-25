@@ -10,7 +10,7 @@ const SinglePlayer = () => {
     useEffect(() => {
         const fetchSinglePlayer = async () => {
             try {
-                const data = await fetchPlayerById(id);
+                const data = await fetchPlayerById(`${ id }`);
                 setPlayer(data.success && data.data ? data.data.player : null);
             } catch (error) {
                 console.error('Error fetching single player', error);

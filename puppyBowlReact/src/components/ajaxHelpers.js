@@ -8,9 +8,9 @@ export const fetchPlayers = async () => {
     try {
         const response = await fetch(baseURL);
         const data = await response.json();
-      
+        console.log(data);
         return data;
-       
+        
     } catch (error) {
         console.error('Error fetching players', error);
         throw error; // Rethrow the error to propagate it further
@@ -19,7 +19,7 @@ export const fetchPlayers = async () => {
 
 export const fetchPlayerById = async (playerId) => {
     try {
-        const response = await fetch(`${baseURL}${playerId}`);
+        const response = await fetch(`${baseURL}{playerId}`);
         const data = await response.json();
         console.log(response);
         return data;
