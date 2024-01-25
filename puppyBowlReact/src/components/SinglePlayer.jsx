@@ -30,7 +30,7 @@ const SinglePlayer = () => {
                     {/* Render other player details */}
                 </div>
             ) : (
-                <p>Loading player detail...</p>
+                <p>Loading player detailsss...</p>
             )}
         </div>
     );
