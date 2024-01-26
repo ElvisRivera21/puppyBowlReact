@@ -19,7 +19,7 @@ export const fetchPlayers = async () => {
 
 export const fetchPlayerById = async (playerId) => {
     try {
-        const response = await fetch(`${baseURL}{playerId}`);
+        const response = await fetch(`${baseURL}${playerId}`);
         const data = await response.json();
         console.log(response);
         return data;
